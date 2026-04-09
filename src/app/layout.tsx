@@ -60,6 +60,22 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${spaceGrotesk.variable} ${inter.variable}`}>
+      <head>
+        <meta name="theme-color" content="#0A0A0A" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Organization',
+              name: 'NERO',
+              description: 'Industrial luxury performance clothing. Engineered for the iron. Designed for everywhere.',
+              foundingLocation: { '@type': 'Place', name: 'South Africa' },
+              brand: { '@type': 'Brand', name: 'NERO' },
+            }),
+          }}
+        />
+      </head>
       <body className="antialiased">
         <AppWrapper>
           <Atmosphere />

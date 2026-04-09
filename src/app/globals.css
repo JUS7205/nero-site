@@ -173,5 +173,28 @@ body {
   color: var(--color-nero-bone);
 }
 
+/* Section Divider */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, var(--color-nero-steel) 30%, var(--color-nero-bronze) 50%, var(--color-nero-steel) 70%, transparent 100%);
+  opacity: 0.3;
+}
 
+/* Prefers Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .scroll-indicator { animation: none; }
+  .scan-line { animation: none; }
+}
+
+/* Touch device hover fix */
+@media (hover: none) {
+  .group:hover .group-hover\:opacity-100 {
+    opacity: 0;
+  }
+}
 

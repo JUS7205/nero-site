@@ -11,9 +11,13 @@ export default function Home() {
     <main>
       <Navbar />
       <Hero />
+      <div className="section-divider max-w-[1280px] mx-auto" />
       <Manifesto />
+      <div className="section-divider max-w-[1280px] mx-auto" />
       <Vision />
+      <div className="section-divider max-w-[1280px] mx-auto" />
       <Collection />
+      <div className="section-divider max-w-[1280px] mx-auto" />
       <Waitlist />
       <Footer />
     </main>

@@ -1,8 +1,29 @@
 'use client';
 
 import { motion, useInView } from 'framer-motion';
-import { useRef, useState, FormEvent } from 'react';
+import { useRef, useState, useEffect, FormEvent } from 'react';
 import { joinWaitlist } from '@/app/actions/waitlist';
+
+function CountUp({ target, duration = 2000 }: { target: number; duration?: number }) {
+  const [count, setCount] = useState(0);
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+
+  useEffect(() => {
+    if (!isInView) return;
+    const startTime = performance.now();
+    const animate = (now: number) => {
+      const progress = Math.min((now - startTime) / duration, 1);
+      // Ease out cubic
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setCount(Math.floor(eased * target));
+      if (progress < 1) requestAnimationFrame(animate);
+    };
+    requestAnimationFrame(animate);
+  }, [isInView, target, duration]);
+
+  return <span ref={ref}>{count.toLocaleString()}+</span>;
+}
 
 export default function Waitlist() {
   const ref = useRef(null);
@@ -69,7 +90,7 @@ export default function Waitlist() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="font-[family-name:var(--font-inter)] text-[16px] font-light text-nero-smoke mb-12"
+          className="font-[family-name:var(--font-inter)] text-[16px] font-light text-nero-smoke mb-10"
         >
           First access to drops. Behind-the-scenes updates. Early pricing. Be part of building something that hasn&apos;t existed before.
         </motion.p>
@@ -85,21 +106,26 @@ export default function Waitlist() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5 }}
-              className="flex items-center justify-center gap-3 py-4"
+              className="flex flex-col items-center gap-4 py-6"
             >
               {/* Checkmark */}
-              <svg
-                className="w-5 h-5 text-nero-bronze"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-              </svg>
-              <span className="font-[family-name:var(--font-inter)] text-[16px] text-nero-bone">
+              <div className="w-12 h-12 border border-nero-bronze/40 flex items-center justify-center">
+                <svg
+                  className="w-6 h-6 text-nero-bronze"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <span className="font-[family-name:var(--font-space)] text-[14px] tracking-[0.1em] text-nero-bone">
                 You&apos;re in. Watch your inbox.
               </span>
+              <p className="font-[family-name:var(--font-inter)] text-[13px] text-nero-concrete">
+                We&apos;ll notify you before anyone else.
+              </p>
             </motion.div>
           ) : (
             <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3">
@@ -144,11 +170,44 @@ export default function Waitlist() {
           )}
         </motion.div>
 
+        {/* Social proof */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : {}}
+          transition={{ duration: 0.8, delay: 0.7 }}
+          className="flex items-center justify-center gap-6 mt-10 pt-6 border-t border-nero-steel/20"
+        >
+          <div className="text-center">
+            <p className="font-[family-name:var(--font-space)] text-[20px] font-bold text-nero-bone">
+              <CountUp target={847} />
+            </p>
+            <p className="font-[family-name:var(--font-space)] text-[9px] tracking-[0.2em] text-nero-concrete uppercase">
+              Waitlist
+            </p>
+          </div>
+          <div className="w-[1px] h-8 bg-nero-steel/30" />
+          <div className="text-center">
+            <p className="font-[family-name:var(--font-space)] text-[20px] font-bold text-nero-bone">
+              <CountUp target={12} duration={1500} />
+            </p>
+            <p className="font-[family-name:var(--font-space)] text-[9px] tracking-[0.2em] text-nero-concrete uppercase">
+              Countries
+            </p>
+          </div>
+          <div className="w-[1px] h-8 bg-nero-steel/30" />
+          <div className="text-center">
+            <p className="font-[family-name:var(--font-space)] text-[20px] font-bold text-nero-bone">3</p>
+            <p className="font-[family-name:var(--font-space)] text-[9px] tracking-[0.2em] text-nero-concrete uppercase">
+              Pieces
+            </p>
+          </div>
+        </motion.div>
+
         {/* Fine print */}
         <motion.p
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.8, delay: 0.6 }}
+          transition={{ duration: 0.8, delay: 0.8 }}
           className="font-[family-name:var(--font-inter)] text-[12px] text-nero-concrete/60 mt-6"
         >
           No spam. Just updates on the journey.

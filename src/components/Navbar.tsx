@@ -12,10 +12,23 @@ const navItems = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('');
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
+
+      // Determine active section based on scroll position
+      const sections = navItems.map(item => item.href.replace('#', ''));
+      let current = '';
+      for (const id of sections) {
+        const el = document.getElementById(id);
+        if (el) {
+          const rect = el.getBoundingClientRect();
+          if (rect.top <= 200) current = `#${id}`;
+        }
+      }
+      setActiveSection(current);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -78,9 +91,21 @@ export default function Navbar() {
                 key={item.label}
                 href={item.href}
                 onClick={(e) => handleNavClick(e, item.href)}
-                className="font-[family-name:var(--font-space)] text-[11px] font-medium tracking-[0.2em] text-nero-concrete hover:text-nero-bone transition-colors duration-500"
+                className={`relative font-[family-name:var(--font-space)] text-[11px] font-medium tracking-[0.2em] transition-colors duration-500 ${
+                  activeSection === item.href
+                    ? 'text-nero-bone'
+                    : 'text-nero-concrete hover:text-nero-bone'
+                }`}
               >
                 {item.label}
+                {/* Active indicator */}
+                {activeSection === item.href && (
+                  <motion.div
+                    layoutId="nav-indicator"
+                    className="absolute -bottom-1 left-0 right-0 h-[1px] bg-nero-bronze"
+                    transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+                  />
+                )}
               </a>
             ))}
           </div>
