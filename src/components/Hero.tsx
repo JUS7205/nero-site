@@ -1,8 +1,19 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { useRef } from 'react';
 
 export default function Hero() {
+  const sectionRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start start', 'end start'],
+  });
+
+  // Parallax: content moves up slower than scroll
+  const contentY = useTransform(scrollYProgress, [0, 1], ['0%', '30%']);
+  const contentOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+
   const handleScrollTo = (id: string) => {
     const target = document.querySelector(id);
     if (target) {
@@ -11,12 +22,15 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
+    <section ref={sectionRef} className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
       {/* Glow effect */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[radial-gradient(circle,rgba(184,151,106,0.05)_0%,transparent_70%)] blur-[200px] pointer-events-none" />
 
-      {/* Content */}
-      <div className="relative z-10 flex flex-col items-center text-center px-6 max-w-3xl">
+      {/* Parallax content wrapper */}
+      <motion.div
+        style={{ y: contentY, opacity: contentOpacity }}
+        className="relative z-10 flex flex-col items-center text-center px-6 max-w-3xl"
+      >
         {/* Label */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -77,7 +91,7 @@ export default function Hero() {
             OUR STORY
           </button>
         </motion.div>
-      </div>
+      </motion.div>
 
       {/* Scroll indicator */}
       <motion.div

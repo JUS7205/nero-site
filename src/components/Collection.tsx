@@ -97,7 +97,7 @@ export default function Collection() {
   };
 
   return (
-    <section id="collection" className="bg-transparent py-20 md:py-32" ref={ref}>
+    <section id="collection" className="bg-transparent py-16 md:py-24" ref={ref}>
       <div className="max-w-[1280px] mx-auto px-6 md:px-12">
         {/* Header */}
         <div className="mb-16">
@@ -212,14 +212,14 @@ export default function Collection() {
           className="mt-24 border-t border-nero-steel/30 pt-16 flex flex-col items-center gap-8"
         >
           <div className="space-y-1 text-center">
-             <p className="font-[family-name:var(--font-space)] text-[12px] tracking-[0.5em] text-nero-concrete uppercase">Phase_01_Deployment</p>
-             <p className="font-[family-name:var(--font-space)] text-[24px] font-bold text-nero-bone">LAUNCHING MARCH 2026</p>
+             <p className="font-[family-name:var(--font-space)] text-[12px] tracking-[0.5em] text-nero-concrete uppercase">Phase_01</p>
+             <p className="font-[family-name:var(--font-space)] text-[24px] font-bold text-nero-bone">COMING SOON</p>
           </div>
           <button
             onClick={handleNotify}
             className="font-[family-name:var(--font-space)] text-[12px] font-bold tracking-[0.3em] px-12 py-4 bg-nero-bone text-nero-void hover:bg-nero-bronze hover:text-white transition-all duration-500"
           >
-            RESERVE ACCESS
+            JOIN THE WAITLIST
           </button>
         </motion.div>
       </div>

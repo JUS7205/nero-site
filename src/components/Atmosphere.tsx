@@ -109,7 +109,8 @@ export default function Atmosphere() {
     const ctx = canvas.getContext('2d', { alpha: false });
     if (!ctx) return;
 
-    let dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const isMobile = window.innerWidth < 768;
+    let dpr = Math.min(window.devicePixelRatio || 1, isMobile ? 1 : 2);
 
     const resize = () => {
       const w = window.innerWidth;
@@ -125,10 +126,15 @@ export default function Atmosphere() {
     window.addEventListener('resize', resize);
 
     const startTime = performance.now();
+    let lastFrame = 0;
+    const frameInterval = isMobile ? 33 : 0; // ~30fps on mobile, uncapped on desktop
 
-    const animate = () => {
-      const elapsed = (performance.now() - startTime) / 1000;
-      draw(ctx, window.innerWidth, window.innerHeight, elapsed);
+    const animate = (now: number) => {
+      if (now - lastFrame >= frameInterval) {
+        const elapsed = (now - startTime) / 1000;
+        draw(ctx, window.innerWidth, window.innerHeight, elapsed);
+        lastFrame = now;
+      }
       animRef.current = requestAnimationFrame(animate);
     };
 

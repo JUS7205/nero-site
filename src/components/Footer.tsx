@@ -2,9 +2,9 @@
 
 export default function Footer() {
   const socialLinks = [
-    { label: 'INSTAGRAM', href: 'https://instagram.com' },
-    { label: 'TIKTOK', href: 'https://tiktok.com' },
-    { label: 'YOUTUBE', href: 'https://youtube.com' },
+    { label: 'INSTAGRAM', href: '#' },
+    { label: 'TIKTOK', href: '#' },
+    { label: 'YOUTUBE', href: '#' },
   ];
 
   return (
@@ -27,21 +27,19 @@ export default function Footer() {
           {/* Social links */}
           <div className="flex items-center gap-8">
             {socialLinks.map((link) => (
-              <a
+              <span
                 key={link.label}
-                href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-[family-name:var(--font-space)] text-[11px] tracking-[0.2em] text-nero-concrete hover:text-nero-bone transition-colors duration-500"
+                className="font-[family-name:var(--font-space)] text-[11px] tracking-[0.2em] text-nero-concrete/40 cursor-default select-none"
+                title="Coming soon"
               >
                 {link.label}
-              </a>
+              </span>
             ))}
           </div>
 
           {/* Copyright */}
           <p className="font-[family-name:var(--font-space)] text-[11px] tracking-[0.15em] text-nero-concrete">
-            &copy; 2025 NERO. SOUTH AFRICA.
+            &copy; 2026 NERO. SOUTH AFRICA.
           </p>
         </div>
 
