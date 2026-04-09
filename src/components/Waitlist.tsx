@@ -39,7 +39,7 @@ export default function Waitlist() {
   };
 
   return (
-    <section id="waitlist" className="relative bg-nero-obsidian py-20 md:py-32 overflow-hidden" ref={ref}>
+    <section id="waitlist" className="relative bg-transparent py-20 md:py-32 overflow-hidden" ref={ref}>
       {/* Glow behind form */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(184,151,106,0.04)_0%,transparent_70%)] blur-[150px] pointer-events-none" />
 

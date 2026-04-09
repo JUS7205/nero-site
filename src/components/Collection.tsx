@@ -97,7 +97,7 @@ export default function Collection() {
   };
 
   return (
-    <section id="collection" className="bg-nero-obsidian py-20 md:py-32" ref={ref}>
+    <section id="collection" className="bg-transparent py-20 md:py-32" ref={ref}>
       <div className="max-w-[1280px] mx-auto px-6 md:px-12">
         {/* Header */}
         <div className="mb-16">

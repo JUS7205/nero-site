@@ -27,7 +27,7 @@ export default function Manifesto() {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section id="about" className="bg-nero-void py-20 md:py-32" ref={ref}>
+    <section id="about" className="bg-transparent py-20 md:py-32" ref={ref}>
       <div className="max-w-[1280px] mx-auto px-6 md:px-12">
         {/* Label */}
         <motion.p

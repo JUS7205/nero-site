@@ -11,7 +11,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden hero-grid">
+    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
       {/* Glow effect */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[radial-gradient(circle,rgba(184,151,106,0.05)_0%,transparent_70%)] blur-[200px] pointer-events-none" />
 

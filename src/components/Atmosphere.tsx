@@ -10,7 +10,7 @@ export default function Atmosphere() {
       
       {/* Liquid Wave Engine */}
       <div className="liquid-wave">
-        <svg className="w-full h-full opacity-30" xmlns="http://www.w3.org/2000/svg">
+        <svg className="w-full h-full opacity-45" xmlns="http://www.w3.org/2000/svg">
           <filter id="wave-noise">
             <feTurbulence 
               type="fractalNoise" 
