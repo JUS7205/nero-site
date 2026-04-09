@@ -137,7 +137,34 @@ body {
   animation: scrollBounce 2s ease-in-out infinite;
 }
 
+/* Liquid Atmosphere Refinement */
+.liquid-wave {
+  position: fixed;
+  inset: 0;
+  background: var(--color-nero-void);
+  z-index: -1;
+  overflow: hidden;
+}
+
+.wave-filter {
+  filter: url(#wave-noise);
+  width: 100%;
+  height: 100%;
+}
+
+@keyframes waveFlow {
+  0% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-5%) scale(1.05); }
+  100% { transform: translateY(0) scale(1); }
+}
+
+@keyframes turb {
+  0% { --seed: 1; }
+  100% { --seed: 100; }
+}
+
 /* Glass Chassis & Hardening */
+
 .glass-chassis {
   background: rgba(10, 10, 10, 0.7);
   backdrop-filter: blur(20px);
