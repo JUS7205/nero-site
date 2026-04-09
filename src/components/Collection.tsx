@@ -1,6 +1,6 @@
 'use client';
 
-import { motion, useInView } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useRef, useState } from 'react';
 import Image from 'next/image';
 import FitIntelligence from './FitIntelligence';
@@ -77,8 +77,7 @@ const products = [
 ];
 
 export default function Collection() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const ref = useRef<HTMLElement>(null);
 
   const [selectedProduct, setSelectedProduct] = useState<string | null>(null);
   const [active3D, setActive3D] = useState<string | null>(null);
@@ -103,7 +102,8 @@ export default function Collection() {
         <div className="mb-16">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-50px' }}
             transition={{ duration: 0.8 }}
             className="font-[family-name:var(--font-space)] text-[12px] tracking-[0.3em] uppercase text-nero-concrete mb-4"
           >
@@ -112,8 +112,9 @@ export default function Collection() {
 
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-50px' }}
+            transition={{ duration: 0.8, delay: 0.1 }}
             className="font-[family-name:var(--font-space)] text-[32px] md:text-[48px] font-bold text-nero-bone leading-tight mb-6"
           >
             The Foundation
@@ -121,8 +122,9 @@ export default function Collection() {
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.3 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-50px' }}
+            transition={{ duration: 0.8, delay: 0.2 }}
             className="font-[family-name:var(--font-inter)] text-[16px] md:text-[18px] font-light text-nero-smoke max-w-2xl"
           >
             Three pieces. Zero compromise. Built for the athlete who moves between the gym and the real world without changing.
@@ -135,8 +137,9 @@ export default function Collection() {
             <motion.div
               key={product.name}
               initial={{ opacity: 0, y: 40 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.4 + i * 0.15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-50px' }}
+              transition={{ duration: 0.8, delay: i * 0.15 }}
               className="group"
             >
               {/* Product Image Placeholder */}
@@ -207,8 +210,9 @@ export default function Collection() {
         {/* Launch Notice */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.9 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-50px' }}
+          transition={{ duration: 0.8, delay: 0.3 }}
           className="mt-24 border-t border-nero-steel/30 pt-16 flex flex-col items-center gap-8"
         >
           <div className="space-y-1 text-center">

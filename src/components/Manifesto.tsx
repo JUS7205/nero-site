@@ -1,7 +1,6 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 
 const values = [
@@ -43,17 +42,26 @@ const values = [
   },
 ];
 
-export default function Manifesto() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
+const fadeUp = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0 },
+};
 
+const fadeUpLarge = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0 },
+};
+
+export default function Manifesto() {
   return (
-    <section id="about" className="bg-transparent py-16 md:py-24" ref={ref}>
+    <section id="about" className="bg-transparent py-16 md:py-24">
       <div className="max-w-[1280px] mx-auto px-6 md:px-12">
         {/* Label */}
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-50px' }}
           transition={{ duration: 0.8 }}
           className="font-[family-name:var(--font-space)] text-[12px] tracking-[0.3em] uppercase text-nero-concrete mb-8"
         >
@@ -62,9 +70,11 @@ export default function Manifesto() {
 
         {/* Headline */}
         <motion.h2
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          variants={fadeUpLarge}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-50px' }}
+          transition={{ duration: 0.8, delay: 0.1 }}
           className="font-[family-name:var(--font-space)] text-[32px] md:text-[56px] font-bold leading-[1.1] mb-14"
         >
           <span className="text-nero-bone">Born from iron.</span>
@@ -74,9 +84,11 @@ export default function Manifesto() {
 
         {/* Body - 2 column */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.4 }}
+          variants={fadeUpLarge}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-50px' }}
+          transition={{ duration: 0.8, delay: 0.2 }}
           className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 mb-20"
         >
           <div className="space-y-6">
@@ -102,9 +114,11 @@ export default function Manifesto() {
           {values.map((value, i) => (
             <motion.div
               key={value.number}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.6 + i * 0.15 }}
+              variants={fadeUpLarge}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: '-50px' }}
+              transition={{ duration: 0.8, delay: 0.1 * i }}
               className="relative border border-nero-steel/20 p-8 group hover:border-nero-bronze/40 hover:bg-nero-charcoal/30 transition-all duration-700 overflow-hidden"
             >
               {/* Hover glow */}

@@ -1,7 +1,6 @@
 'use client';
 
-import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
+import { motion } from 'framer-motion';
 
 const timeline = [
   {
@@ -41,20 +40,29 @@ const statusColors: Record<string, string> = {
   'VISION': 'bg-transparent border border-nero-steel/50 text-nero-concrete/60',
 };
 
-export default function Vision() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
+const fadeUp = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0 },
+};
 
+const fadeUpLarge = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0 },
+};
+
+export default function Vision() {
   return (
-    <section id="vision" className="relative bg-nero-void py-16 md:py-24 overflow-hidden" ref={ref}>
+    <section id="vision" className="relative bg-nero-void py-16 md:py-24 overflow-hidden">
       {/* Glow on right */}
       <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(184,151,106,0.06)_0%,transparent_70%)] blur-[200px] pointer-events-none" />
 
       <div className="relative z-10 max-w-[1280px] mx-auto px-6 md:px-12">
         {/* Header */}
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-50px' }}
           transition={{ duration: 0.8 }}
           className="font-[family-name:var(--font-space)] text-[12px] tracking-[0.3em] uppercase text-nero-bronze mb-4"
         >
@@ -62,18 +70,22 @@ export default function Vision() {
         </motion.p>
 
         <motion.h2
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.15 }}
+          variants={fadeUpLarge}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-50px' }}
+          transition={{ duration: 0.8, delay: 0.1 }}
           className="font-[family-name:var(--font-space)] text-[32px] md:text-[48px] font-bold text-nero-bone leading-tight mb-6"
         >
           Beyond clothing.
         </motion.h2>
 
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.3 }}
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-50px' }}
+          transition={{ duration: 0.8, delay: 0.2 }}
           className="font-[family-name:var(--font-inter)] text-[16px] md:text-[18px] font-light text-nero-smoke max-w-2xl mb-16"
         >
           NERO isn&apos;t just a clothing brand. It&apos;s the foundation of an ecosystem where your clothing, your app, and your gym work as one intelligence—knowing your body better than any personal trainer ever could.
@@ -93,9 +105,11 @@ export default function Vision() {
               return (
                 <motion.div
                   key={item.phase}
-                  initial={{ opacity: 0, y: 40 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.8, delay: 0.4 + i * 0.15 }}
+                  variants={{ hidden: { opacity: 0, y: 40 }, visible: { opacity: 1, y: 0 } }}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, margin: '-50px' }}
+                  transition={{ duration: 0.8, delay: i * 0.1 }}
                   className="relative"
                 >
                   {/* Dot - desktop */}

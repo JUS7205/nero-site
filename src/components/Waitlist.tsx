@@ -26,8 +26,6 @@ function CountUp({ target, duration = 2000 }: { target: number; duration?: numbe
 }
 
 export default function Waitlist() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [loading, setLoading] = useState(false);
@@ -60,7 +58,7 @@ export default function Waitlist() {
   };
 
   return (
-    <section id="waitlist" className="relative bg-transparent py-16 md:py-24 overflow-hidden" ref={ref}>
+    <section id="waitlist" className="relative bg-transparent py-16 md:py-24 overflow-hidden">
       {/* Glow behind form */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(184,151,106,0.04)_0%,transparent_70%)] blur-[150px] pointer-events-none" />
 
@@ -68,7 +66,8 @@ export default function Waitlist() {
         {/* Label */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-50px' }}
           transition={{ duration: 0.8 }}
           className="font-[family-name:var(--font-space)] text-[12px] tracking-[0.3em] uppercase text-nero-bronze mb-4"
         >
@@ -78,7 +77,8 @@ export default function Waitlist() {
         {/* Title */}
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-50px' }}
           transition={{ duration: 0.8, delay: 0.15 }}
           className="font-[family-name:var(--font-space)] text-[32px] md:text-[48px] font-bold text-nero-bone leading-tight mb-6"
         >
@@ -88,7 +88,8 @@ export default function Waitlist() {
         {/* Description */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-50px' }}
           transition={{ duration: 0.8, delay: 0.3 }}
           className="font-[family-name:var(--font-inter)] text-[16px] font-light text-nero-smoke mb-10"
         >
@@ -98,7 +99,8 @@ export default function Waitlist() {
         {/* Form */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-50px' }}
           transition={{ duration: 0.8, delay: 0.45 }}
         >
           {status === 'success' ? (
@@ -173,7 +175,8 @@ export default function Waitlist() {
         {/* Social proof */}
         <motion.div
           initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, margin: '-50px' }}
           transition={{ duration: 0.8, delay: 0.7 }}
           className="flex items-center justify-center gap-6 mt-10 pt-6 border-t border-nero-steel/20"
         >
@@ -206,7 +209,8 @@ export default function Waitlist() {
         {/* Fine print */}
         <motion.p
           initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, margin: '-50px' }}
           transition={{ duration: 0.8, delay: 0.8 }}
           className="font-[family-name:var(--font-inter)] text-[12px] text-nero-concrete/60 mt-6"
         >
