@@ -37,7 +37,7 @@ const statusColors: Record<string, string> = {
   'ACTIVE': 'bg-nero-bronze text-nero-void',
   'IN DEVELOPMENT': 'bg-nero-steel text-nero-bone',
   'PLANNED': 'bg-transparent border border-nero-steel text-nero-concrete',
-  'VISION': 'bg-transparent border border-nero-steel/50 text-nero-concrete/60',
+  'VISION': 'bg-transparent border border-nero-steel/50 text-nero-smoke/80',
 };
 
 const fadeUp = {

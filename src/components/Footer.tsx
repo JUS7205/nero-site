@@ -40,7 +40,7 @@ export default function Footer() {
           </div>
 
           {/* Copyright */}
-          <p className="font-[family-name:var(--font-space)] text-[11px] tracking-[0.15em] text-nero-concrete">
+          <p className="font-[family-name:var(--font-space)] text-[11px] tracking-[0.15em] text-nero-smoke/80">
             &copy; 2026 NERO. SOUTH AFRICA.
           </p>
         </div>
@@ -52,13 +52,13 @@ export default function Footer() {
           </p>
           
           <div className="flex items-center gap-6 justify-center">
-            <Link href="/policies/terms" className="font-[family-name:var(--font-space)] text-[9px] tracking-[0.15em] text-nero-concrete hover:text-nero-bronze transition-colors uppercase">
+            <Link href="/policies/terms" className="font-[family-name:var(--font-space)] text-[9px] tracking-[0.15em] text-nero-smoke/80 hover:text-nero-bronze transition-colors uppercase">
               Terms of Service
             </Link>
-            <Link href="/policies/privacy" className="font-[family-name:var(--font-space)] text-[9px] tracking-[0.15em] text-nero-concrete hover:text-nero-bronze transition-colors uppercase">
+            <Link href="/policies/privacy" className="font-[family-name:var(--font-space)] text-[9px] tracking-[0.15em] text-nero-smoke/80 hover:text-nero-bronze transition-colors uppercase">
               Privacy Policy
             </Link>
-            <Link href="/policies/returns" className="font-[family-name:var(--font-space)] text-[9px] tracking-[0.15em] text-nero-concrete hover:text-nero-bronze transition-colors uppercase">
+            <Link href="/policies/returns" className="font-[family-name:var(--font-space)] text-[9px] tracking-[0.15em] text-nero-smoke/80 hover:text-nero-bronze transition-colors uppercase">
               Return Policy
             </Link>
           </div>

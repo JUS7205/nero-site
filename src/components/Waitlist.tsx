@@ -140,7 +140,7 @@ export default function Waitlist() {
                 }}
                 placeholder="Enter your email"
                 required
-                className={`flex-1 px-5 py-3.5 bg-nero-charcoal border text-nero-bone font-[family-name:var(--font-inter)] text-[14px] placeholder:text-nero-concrete/60 focus:outline-none focus:border-nero-bronze transition-colors duration-300 ${
+                className={`flex-1 px-5 py-3.5 bg-nero-charcoal border text-nero-bone font-[family-name:var(--font-inter)] text-[14px] placeholder:text-nero-smoke/80 focus:outline-none focus:border-nero-bronze transition-colors duration-300 ${
                   status === 'error' ? 'border-red-500/50' : 'border-nero-steel'
                 }`}
                 aria-label="Email address"
@@ -212,7 +212,7 @@ export default function Waitlist() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true, margin: '-50px' }}
           transition={{ duration: 0.8, delay: 0.8 }}
-          className="font-[family-name:var(--font-inter)] text-[12px] text-nero-concrete/60 mt-6"
+          className="font-[family-name:var(--font-inter)] text-[12px] text-nero-smoke/80 mt-6"
         >
           No spam. Just updates on the journey.
         </motion.p>

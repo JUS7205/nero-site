@@ -143,7 +143,7 @@ export default function AISupport() {
                   value={input}
                   onChange={handleInputChange}
                   placeholder="Ask NERO anything..."
-                  className="w-full bg-nero-obsidian border border-nero-steel px-5 py-4 text-[12px] font-[family-name:var(--font-inter)] text-nero-bone placeholder:text-nero-concrete/40 focus:outline-none focus:border-nero-bronze transition-all tracking-wide"
+                  className="w-full bg-nero-obsidian border border-nero-steel px-5 py-4 text-[12px] font-[family-name:var(--font-inter)] text-nero-bone placeholder:text-nero-smoke/80 focus:outline-none focus:border-nero-bronze transition-all tracking-wide"
                 />
                 <button 
                   type="submit"
