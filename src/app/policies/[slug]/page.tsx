@@ -7,21 +7,21 @@ const policies: Record<string, { title: string; date: string; content: React.Rea
     content: (
       <>
         <h3 className="text-nero-bone font-bold mb-4 font-[family-name:var(--font-space)] text-xl tracking-wider uppercase">1. Information Architecture</h3>
-        <p className="mb-8">This Privacy Policy governs the collection, processing, and storage of telemetry and user-provided data across all NERO platforms, including the primary website, associated digital interfaces, and embedded garment technology. We do not operate as data brokers. The data you provide operates exclusively as fuel for the NERO ecosystem to optimize production scaling, user experience, and individualized machine-learning inferences.</p>
+        <p className="mb-8">This Privacy Policy governs the collection, processing, and storage of telemetry and user-provided data across all NERO platforms, including the primary website, associated digital interfaces, and physical technology. We collect, store, and process your information in accordance with applicable data protection laws. NERO does not sell, rent, or lease your personal data to third parties. Data is collected solely for fulfilling orders, product analytics, and platform security.</p>
         
         <h3 className="text-nero-bone font-bold mb-4 font-[family-name:var(--font-space)] text-xl tracking-wider uppercase">2. Telemetry and Data Acquisition</h3>
-        <p className="mb-4">When interacting with the NERO platform or our proprietary physical gear, we aggregate several classes of data:</p>
+        <p className="mb-4">When interacting with the NERO platform, we aggregate the following classes of data:</p>
         <ul className="list-disc pl-6 mb-8 text-nero-smoke markers:text-nero-bronze space-y-2">
-          <li><strong>Identity & Access Parameters:</strong> Name, secure cryptographic email tokens, sizing preferences, demographic vectors utilized during checkout and application onboarding.</li>
-          <li><strong>Biometric & Usage Telemetry:</strong> Metrics captured via the NERO app or smart-textile nodes (where applicable), including movement frequency, environmental exposure, and stress conditions. This is strictly opt-in and stored in highly encrypted shards.</li>
-          <li><strong>Digital Traversal Data:</strong> IP signatures, browser architecture, load sequences, and active session paths across our digital nodes to fortify system responses and security.</li>
+          <li><strong>Identity & Account Data:</strong> Name, secure cryptographic email tokens, sizing preferences, billing/shipping addresses, and demographic vectors utilized strictly for order fulfillment.</li>
+          <li><strong>Biometric & Usage Telemetry:</strong> Metrics formally collected via the NERO app or smart-textiles. Collection of this data is strictly opt-in and utilized solely for providing functionality as requested by the user.</li>
+          <li><strong>Digital Traversal Data:</strong> IP signatures, browser architecture, load sequences, and active session paths across our digital nodes. This is automatically collected to fortify system responses against unauthorized access.</li>
         </ul>
 
-        <h3 className="text-nero-bone font-bold mb-4 font-[family-name:var(--font-space)] text-xl tracking-wider uppercase">3. Utilization Protocols</h3>
-        <p className="mb-8">Your data acts as the architectural blueprint for your experience. We utilize your specifications strictly to formulate highly targeted updates, build out future clothing iterations, execute logistics/shipping commands, and calibrate the AI performance matrix tied to your user profile. NERO fundamentally refuses to monetize raw user identity data through external third-party syndication.</p>
+        <h3 className="text-nero-bone font-bold mb-4 font-[family-name:var(--font-space)] text-xl tracking-wider uppercase">3. Data Subject Rights & Processing</h3>
+        <p className="mb-8">Users retain the absolute right to request access to, correction of, or deletion of their personal telemetry stored within our architecture. We reserve the right to retain specific transactional data necessary to comply with prevailing legal obligations or to resolve disputes. Requests for data erasure must be routed formally through official support channels.</p>
 
         <h3 className="text-nero-bone font-bold mb-4 font-[family-name:var(--font-space)] text-xl tracking-wider uppercase">4. Security Infrastructure</h3>
-        <p className="mb-8">All incoming data payloads are funneled through military-grade encryption tunnels. We employ a brutalist approach to cyber-defense: databases are restricted behind rigorous identity and access management (IAM) protocols and multi-factor authentication requirements for all internal operatives. No system is technically impenetrable, but our defensive grid is built to modern peak specifications.</p>
+        <p className="mb-8">All incoming data payloads are funneled through military-grade encryption tunnels. We employ rigorous identity and access management (IAM) protocols. However, no data transmission over the Internet can be guaranteed to be 100% secure. You acknowledge that you provide your personal data at your own risk, and NERO shall not be liable for unauthorized decryption or third-party breaches outside of our direct control.</p>
       </>
     ),
   },
@@ -30,17 +30,20 @@ const policies: Record<string, { title: string; date: string; content: React.Rea
     date: 'April 2026',
     content: (
       <>
-         <h3 className="text-nero-bone font-bold mb-4 font-[family-name:var(--font-space)] text-xl tracking-wider uppercase">1. Protocol Acceptance</h3>
-         <p className="mb-8">Welcome to NERO. By actively connecting to this digital hub, pre-ordering our physical architecture (gear), or communicating with the NERO Intelligence framework, you acknowledge and agree to be bound unconditionally by these Terms of Service. If you find these parameters unacceptable, sever your connection to this site immediately.</p>
+         <h3 className="text-nero-bone font-bold mb-4 font-[family-name:var(--font-space)] text-xl tracking-wider uppercase">1. Protocol Acceptance & Modification</h3>
+         <p className="mb-8">By actively connecting to this digital hub, ordering our physical architecture, or utilizing the NERO Intelligence framework, you agree to these Terms of Service. NERO explicitly reserves the right to modify, alter, or update these terms at any time, at our sole discretion, without prior notice. Your continued use of the platform following any modifications constitutes binding acceptance of those changes.</p>
          
          <h3 className="text-nero-bone font-bold mb-4 font-[family-name:var(--font-space)] text-xl tracking-wider uppercase">2. Intellectual Property Rights</h3>
-         <p className="mb-8">Every digital schematic, physical design, logo, AI framework, and linguistic construct operating under the NERO banner is the exclusive intellectual property of NERO LABS. Reverse-engineering our embedded tech, unauthorized distribution of our physical designs, or duplication of our digital brand assets will result in immediate termination of access and potential legal escalation under international IP law.</p>
+         <p className="mb-8">All digital schematics, physical designs, algorithms, logos, and linguistic constructs operating under the NERO banner are the exclusive intellectual property of NERO. Unauthorized distribution, reverse-engineering, or commercial duplication of our physical or digital assets is strictly prohibited and will result in immediate termination of service and legal action to the fullest extent permitted by law.</p>
 
-         <h3 className="text-nero-bone font-bold mb-4 font-[family-name:var(--font-space)] text-xl tracking-wider uppercase">3. Production and Fulfillment Limits</h3>
-         <p className="mb-8">NERO operates on an extreme precision model. Drops are limited and production runs are meticulously calculated. Securing a spot on the waitlist or executing a pre-order does not definitively guarantee fulfillment until your payment node is verified and an absolute shipping manifest is generated. We reserve the unequivocal right to refuse service, cancel orders, or restrict quantities to maintain supply-chain integrity.</p>
+         <h3 className="text-nero-bone font-bold mb-4 font-[family-name:var(--font-space)] text-xl tracking-wider uppercase">3. Disclaimer of Warranties</h3>
+         <p className="mb-8 uppercase text-sm">Our products and digital platforms are provided on an "as is" and "as available" basis without any warranties of any kind, either express or implied, including but not limited to implied warranties of merchantability, fitness for a particular purpose, or non-infringement. NERO does not warrant that our product will meet your specific requirements, or that the operation of the product will be uninterrupted, error-free, or entirely secure.</p>
          
-         <h3 className="text-nero-bone font-bold mb-4 font-[family-name:var(--font-space)] text-xl tracking-wider uppercase">4. Liability Restraints</h3>
-         <p className="mb-8">Our garments are engineered for intense, brutal physiological strain. However, NERO assumes zero liability for bodily injury, equipment failure, or environmental damage incurred while wearing our gear. You are solely responsible for the physical actions you undertake while operating within our clothing.</p>
+         <h3 className="text-nero-bone font-bold mb-4 font-[family-name:var(--font-space)] text-xl tracking-wider uppercase">4. Limitation of Liability</h3>
+         <p className="mb-8 uppercase text-sm">Under no circumstances, including negligence, shall NERO, its directors, employees, or operational partners be liable for any direct, indirect, incidental, special, consequential, or punitive damages arising out of the use of, or the inability to use, our physical apparel, software, or digital frameworks. Your sole and exclusive remedy for dissatisfaction with our products or services is to discontinue usage.</p>
+
+         <h3 className="text-nero-bone font-bold mb-4 font-[family-name:var(--font-space)] text-xl tracking-wider uppercase">5. Governing Law</h3>
+         <p className="mb-8">These Terms of Service and any separate agreements whereby we provide you products or services shall be governed by and construed in accordance with the laws of the Republic of South Africa. Any disputes arising under these terms shall be subject to the exclusive jurisdiction of the state.</p>
       </>
     ),
   },
@@ -49,19 +52,22 @@ const policies: Record<string, { title: string; date: string; content: React.Rea
     date: 'April 2026',
     content: (
       <>
-         <h3 className="text-nero-bone font-bold mb-4 font-[family-name:var(--font-space)] text-xl tracking-wider uppercase">1. The NERO Guarantee</h3>
-         <p className="mb-8">We engineer perfection. If your gear arrives operating below the intended specification, featuring structural anomalies or unmitigated manufacturing flaws, we will rectify the issue. The NERO Return Protocol is strictly constrained to 14 days post-delivery.</p>
+         <h3 className="text-nero-bone font-bold mb-4 font-[family-name:var(--font-space)] text-xl tracking-wider uppercase">1. Return Parameters & Authorization</h3>
+         <p className="mb-8">Returns are strictly constrained to 14 days post-delivery. To initiate a return, a Return Merchandise Authorization (RMA) token is categorically required. NERO retains the sole and absolute discretion to approve or reject any return request. Products sent to our logistics centers without an authorized RMA will be considered forfeited and will not be refunded or returned.</p>
          
-         <h3 className="text-nero-bone font-bold mb-4 font-[family-name:var(--font-space)] text-xl tracking-wider uppercase">2. RMA Execution</h3>
-         <p className="mb-4">To initiate a return or structural exchange, you must generate a Return Merchandise Authorization (RMA) token via our support node. Unauthorized returns sent blindly to our logistics center will be immediately classified as lost and incinerated without refund.</p>
+         <h3 className="text-nero-bone font-bold mb-4 font-[family-name:var(--font-space)] text-xl tracking-wider uppercase">2. Condition of Goods</h3>
+         <p className="mb-4">Apparel and hardware must be returned in fundamentally flawless, pristine condition.</p>
          <ul className="list-disc pl-6 mb-8 text-nero-smoke markers:text-nero-bronze space-y-2">
-          <li><strong>Uncompromised State:</strong> Apparel must be fundamentally unworn, unwashed, and completely uncompromised.</li>
-          <li><strong>Telemetry Tags:</strong> All technical labels, NFC tags, and packaging nodes must be attached and intact.</li>
-          <li><strong>Refusal Rights:</strong> If the gear is returned smelling of ozone, sweat, or any physical exertion, the exchange will be nullified.</li>
+          <li><strong>Uncompromised State:</strong> Merchandise must be entirely unworn, unwashed, and completely uncompromised. Any evidence of sweat, physical exertion, perfume, or environmental odor immediately voids the return authorization.</li>
+          <li><strong>Labeling Integrity:</strong> All technical labels, NFC tags, and bespoke packaging nodes must remain attached and structurally intact.</li>
+          <li><strong>Final Validation:</strong> NERO logistics operatives hold sole authority in determining the condition of returned goods. Disputed conditions will always default to the final assessment made by our internal quality control.</li>
         </ul>
 
-         <h3 className="text-nero-bone font-bold mb-4 font-[family-name:var(--font-space)] text-xl tracking-wider uppercase">3. Logistics and Tariffs</h3>
-         <p className="mb-8">The user is entirely responsible for the return shipping vector. NERO is not liable for packages intercepted, lost, or destroyed during transit by third-party courier services. Original shipping tariffs are non-refundable unless the physical failure was explicitly determined to be an error originating from NERO Labs.</p>
+         <h3 className="text-nero-bone font-bold mb-4 font-[family-name:var(--font-space)] text-xl tracking-wider uppercase">3. Defective Protocol</h3>
+         <p className="mb-8">Claims regarding manufacturing defects must be submitted within 7 days of delivery with supporting cryptographic/photographic evidence. "Defects" do not encompass damage caused by improper maintenance, normal wear and tear, or utilization outside of designated physical load parameters.</p>
+
+         <h3 className="text-nero-bone font-bold mb-4 font-[family-name:var(--font-space)] text-xl tracking-wider uppercase">4. Financial and Logistical Liability</h3>
+         <p className="mb-8">The user assumes all financial responsibility for return shipping tariffs. Original shipping fees, priority surcharges, and international customs duties are entirely non-refundable. NERO assumes zero liability for packages intercepted, stolen, or lost in transit by third-party delivery services. We strongly recommend utilizing tracking and insurance for all inward freight.</p>
       </>
     ),
   }
