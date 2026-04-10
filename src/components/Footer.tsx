@@ -1,5 +1,7 @@
 'use client';
 
+import Link from 'next/link';
+
 export default function Footer() {
   const socialLinks = [
     { label: 'INSTAGRAM', href: '#' },
@@ -11,7 +13,7 @@ export default function Footer() {
     <footer className="bg-nero-void border-t border-nero-steel/10 py-16">
       <div className="max-w-[1280px] mx-auto px-6 md:px-12">
         {/* Main footer row */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-8 mb-12">
           {/* Logo */}
           <a
             href="#"
@@ -29,7 +31,7 @@ export default function Footer() {
             {socialLinks.map((link) => (
               <span
                 key={link.label}
-                className="font-[family-name:var(--font-space)] text-[11px] tracking-[0.2em] text-nero-concrete/40 cursor-default select-none"
+                className="font-[family-name:var(--font-space)] text-[11px] tracking-[0.2em] text-nero-smoke opacity-80 hover:text-nero-bone transition-colors cursor-default select-none"
                 title="Coming soon"
               >
                 {link.label}
@@ -43,10 +45,24 @@ export default function Footer() {
           </p>
         </div>
 
-        {/* Tagline */}
-        <p className="text-center font-[family-name:var(--font-inter)] text-[12px] font-light text-nero-steel mt-12 tracking-wider">
-          Forged in darkness. Built for everywhere.
-        </p>
+        {/* Bottom row: Tagline & Policies */}
+        <div className="flex flex-col md:flex-row items-center justify-between pt-8 border-t border-nero-steel/10 gap-6">
+          <p className="font-[family-name:var(--font-inter)] text-[12px] font-light text-nero-smoke tracking-wider text-center md:text-left">
+            Forged in darkness. Built for everywhere.
+          </p>
+          
+          <div className="flex items-center gap-6 justify-center">
+            <Link href="/policies/terms" className="font-[family-name:var(--font-space)] text-[9px] tracking-[0.15em] text-nero-concrete hover:text-nero-bronze transition-colors uppercase">
+              Terms of Service
+            </Link>
+            <Link href="/policies/privacy" className="font-[family-name:var(--font-space)] text-[9px] tracking-[0.15em] text-nero-concrete hover:text-nero-bronze transition-colors uppercase">
+              Privacy Policy
+            </Link>
+            <Link href="/policies/returns" className="font-[family-name:var(--font-space)] text-[9px] tracking-[0.15em] text-nero-concrete hover:text-nero-bronze transition-colors uppercase">
+              Return Policy
+            </Link>
+          </div>
+        </div>
       </div>
     </footer>
   );
