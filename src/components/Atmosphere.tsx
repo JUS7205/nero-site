@@ -7,9 +7,8 @@ export default function Atmosphere() {
   const animRef = useRef<number>(0);
 
   const draw = useCallback((ctx: CanvasRenderingContext2D, width: number, height: number, time: number) => {
-    // Deep void base
-    ctx.fillStyle = '#0A0A0A';
-    ctx.fillRect(0, 0, width, height);
+    // Deep void base (clear instead of fill because CSS handles background)
+    ctx.clearRect(0, 0, width, height);
 
     // --- Smooth flowing gradient waves ---
     // Each wave is a filled bezier curve region with semi-transparent dark fills.
@@ -18,16 +17,12 @@ export default function Atmosphere() {
     const layers = [
       // Deep background — slow, large undulations
       { yBase: 0.2, amp: 0.08, freq: 0.4, speed: 0.12, phase: 0, r: 16, g: 16, b: 16, a: 0.9 },
-      { yBase: 0.3, amp: 0.06, freq: 0.6, speed: -0.08, phase: 1.2, r: 18, g: 17, b: 15, a: 0.7 },
       // Mid layers 
       { yBase: 0.42, amp: 0.07, freq: 0.5, speed: 0.1, phase: 2.5, r: 22, g: 22, b: 22, a: 0.8 },
       { yBase: 0.5, amp: 0.05, freq: 0.7, speed: -0.14, phase: 0.8, r: 20, g: 18, b: 16, a: 0.6 },
-      // Bronze accent — very subtle warmth
-      { yBase: 0.38, amp: 0.04, freq: 0.35, speed: 0.06, phase: 3.1, r: 140, g: 115, b: 80, a: 0.025 },
       // Foreground — faster, sharper
       { yBase: 0.6, amp: 0.05, freq: 0.8, speed: 0.16, phase: 4.0, r: 26, g: 24, b: 22, a: 0.7 },
       { yBase: 0.72, amp: 0.04, freq: 0.55, speed: -0.11, phase: 1.8, r: 14, g: 13, b: 13, a: 0.8 },
-      { yBase: 0.85, amp: 0.03, freq: 0.9, speed: 0.09, phase: 5.2, r: 20, g: 20, b: 20, a: 0.5 },
     ];
 
     const segments = 6; // number of bezier segments across width
@@ -74,32 +69,7 @@ export default function Atmosphere() {
       ctx.fillStyle = `rgba(${layer.r}, ${layer.g}, ${layer.b}, ${layer.a})`;
       ctx.fill();
     }
-
-    // --- Ambient glow ---
-    // Soft bronze radial glow that breathes
-    const breathe = 0.025 + Math.sin(time * 0.15) * 0.01;
-    const glowX = width * (0.5 + Math.sin(time * 0.04) * 0.05);
-    const glowY = height * (0.35 + Math.sin(time * 0.06) * 0.03);
-    const grd = ctx.createRadialGradient(
-      glowX, glowY, 0,
-      glowX, glowY, width * 0.55
-    );
-    grd.addColorStop(0, `rgba(184, 151, 106, ${breathe})`);
-    grd.addColorStop(0.4, `rgba(184, 151, 106, ${breathe * 0.3})`);
-    grd.addColorStop(1, 'transparent');
-    ctx.fillStyle = grd;
-    ctx.fillRect(0, 0, width, height);
-
-    // --- Vignette (drawn on canvas for seamless integration) ---
-    const vig = ctx.createRadialGradient(
-      width * 0.5, height * 0.5, width * 0.2,
-      width * 0.5, height * 0.5, width * 0.85
-    );
-    vig.addColorStop(0, 'transparent');
-    vig.addColorStop(1, 'rgba(10, 10, 10, 0.45)');
-    ctx.fillStyle = vig;
-    ctx.fillRect(0, 0, width, height);
-
+    // Lighting effects moved to CSS for massive performance gains
   }, []);
 
   useEffect(() => {
@@ -127,7 +97,8 @@ export default function Atmosphere() {
 
     const startTime = performance.now();
     let lastFrame = 0;
-    const frameInterval = isMobile ? 33 : 0; // ~30fps on mobile, uncapped on desktop
+    // Cap framerate slightly more aggressively. Desktop ~45fps, Mobile ~30fps 
+    const frameInterval = isMobile ? 33 : 22; 
 
     const animate = (now: number) => {
       if (now - lastFrame >= frameInterval) {
@@ -147,11 +118,16 @@ export default function Atmosphere() {
   }, [draw]);
 
   return (
-    <canvas
-      ref={canvasRef}
-      className="fixed inset-0 w-full h-full pointer-events-none"
-      style={{ zIndex: 0 }}
-      aria-hidden="true"
-    />
+    <>
+      <div className="fixed inset-0 w-full h-full bg-nero-void pointer-events-none" style={{ zIndex: -2 }} />
+      <canvas
+        ref={canvasRef}
+        className="fixed inset-0 w-full h-full pointer-events-none"
+        style={{ zIndex: -1 }}
+        aria-hidden="true"
+      />
+      <div className="fixed inset-0 w-full h-full pointer-events-none ambient-glow" style={{ zIndex: 0 }} />
+      <div className="fixed inset-0 w-full h-full pointer-events-none vignette-overlay" style={{ zIndex: 0 }} />
+    </>
   );
 }

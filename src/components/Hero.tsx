@@ -11,8 +11,8 @@ export default function Hero() {
   });
 
   // Parallax: content moves up slower than scroll
-  const contentY = useTransform(scrollYProgress, [0, 1], ['0%', '30%']);
-  const contentOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+  const contentY = useTransform(scrollYProgress, [0, 1], ['0%', '40%']);
+  const contentOpacity = useTransform(scrollYProgress, [0.4, 1], [1, 0]);
 
   const handleScrollTo = (id: string) => {
     const target = document.querySelector(id);

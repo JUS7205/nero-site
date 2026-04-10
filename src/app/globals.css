@@ -173,6 +173,21 @@ body {
   color: var(--color-nero-bone);
 }
 
+/* GPU-accelerated Lighting Effects (moved from Canvas) */
+.vignette-overlay {
+  background: radial-gradient(circle, transparent 20%, rgba(10, 10, 10, 0.6) 85%);
+}
+
+.ambient-glow {
+  background: radial-gradient(circle at 50% 35%, rgba(184, 151, 106, 0.02) 0%, rgba(184, 151, 106, 0.005) 40%, transparent 60%);
+  animation: breatheGlow 8s ease-in-out infinite alternate;
+}
+
+@keyframes breatheGlow {
+  0% { transform: scale(1); opacity: 0.8; }
+  100% { transform: scale(1.1); opacity: 1.2; }
+}
+
 /* Section Divider */
 .section-divider {
   height: 1px;
