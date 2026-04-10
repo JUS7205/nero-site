@@ -36,10 +36,14 @@ export default function ProductDossier({ product, isOpen, onClose, onPreOrder }:
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [isOpen, onClose]);
 
-  // Lock body scroll when open
+  // Lock body scroll when open and force scroll to top
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
+      // Force modal content to scroll to top explicitly when opened
+      if (panelRef.current) {
+        panelRef.current.scrollTop = 0;
+      }
     } else {
       document.body.style.overflow = '';
     }
