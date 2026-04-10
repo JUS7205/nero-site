@@ -73,8 +73,9 @@ const policies: Record<string, { title: string; date: string; content: React.Rea
   }
 };
 
-export default function PolicyPage({ params }: { params: { slug: string } }) {
-  const policy = policies[params.slug];
+export default async function PolicyPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const policy = policies[slug];
 
   if (!policy) {
     return (
